@@ -1,0 +1,12 @@
+#compdef backd
+
+local d ds
+d=$words[2]
+
+if [ -z "$d" ]; then
+  ds=($(_backd_enumerate))
+  _describe -t backward_directory "backward directory" ds
+else
+  ds=($(_backd_complete_all $d))
+  _describe -t backward_directory "backward directory" ds
+fi
